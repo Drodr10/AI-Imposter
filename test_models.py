@@ -1,9 +1,5 @@
 from langchain.chat_models import init_chat_model
 from langchain_core.messages import SystemMessage, HumanMessage
-from dotenv import load_dotenv
-
-# Load your API keys from the .env file
-load_dotenv()
 
 # --- Configuration ---
 # Uncomment the model you want to test.
