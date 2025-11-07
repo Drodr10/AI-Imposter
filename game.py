@@ -104,9 +104,10 @@ class Game:
         "Momentum", "Entropy", "Friction", "Equilibrium", "Diffusion", "Turbulence"
     ]
 
-    def __init__(self, agents: list, topic: str, imposter: str):
+    def __init__(self, agents: list, topic: str, category: str, imposter: str):
         self.agents = agents
         self.topic = topic
+        self.category = category
         self.imposter = imposter
         self.dead_agents = []
         self.voting_history = []
@@ -136,7 +137,7 @@ class Game:
         first_agent = self.agents[0]
         first_agent.message_list.append(format_clue_prompt(first_agent.name))
         if first_agent.name == self.imposter:
-            first_agent.message_list.append(HumanMessage(content="It seems like you've been selected first to give a clue. As a clue, the category is 'Cartoons'. Try to give a vague clue that fits this category without revealing too much."))
+            first_agent.message_list.append(HumanMessage(content="It seems like you've been selected first to give a clue. As a clue, the category is '{self.category}'. Try to give a vague clue that fits this category without revealing too much."))
 
     def play_turns(self):
         print("\n--- PHASE: CLUE GENERATION ---")
